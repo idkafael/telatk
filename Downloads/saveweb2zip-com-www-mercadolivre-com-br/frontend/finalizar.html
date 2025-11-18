@@ -964,7 +964,11 @@
         
         // Configuração do Mercado Pago
         const MERCADOPAGO_PUBLIC_KEY = 'APP_USR-cd7983a0-97cb-4ac0-a3e5-737865dad04d'; // Chave pública do Mercado Pago
-        const API_BASE_URL = 'http://localhost:8001/api/payments'; // URL da API do backend
+        
+        // URL da API - funciona tanto localmente quanto na Vercel
+        const API_BASE_URL = window.location.hostname === 'localhost' 
+            ? 'http://localhost:8001/api/payments' 
+            : '/api/payments';
         
         let mp = null;
         
